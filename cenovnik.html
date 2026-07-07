@@ -17,7 +17,7 @@
     <span class="logo-znak">BN</span>
     <span class="logo-ime">Bjuti Nadica</span>
   </a>
-  <nav aria-label="Glavna navigacija">
+  <nav id="glavna-nav" aria-label="Glavna navigacija">
     <a href="index.html#usluge">Usluge</a>
     <a href="index.html#zasto">Zašto mi</a>
     <a href="galerija.html">Galerija</a>
@@ -25,6 +25,9 @@
     <a href="index.html#kontakt">Kontakt</a>
   </nav>
   <a class="header-tel" href="tel:0677220304">067 722 0304</a>
+  <button class="hamburger" id="hamburger" aria-label="Otvori meni" aria-expanded="false" aria-controls="glavna-nav">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <!-- HERO -->
@@ -305,5 +308,25 @@
   <br><span style="font-size:11px;opacity:.4;margin-top:6px;display:inline-block;">Web dizajn: <a href="https://rondo.rs" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;opacity:1;">Rondo</a></span>
 </footer>
 
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.getElementById('glavna-nav');
+  btn.addEventListener('click', function() {
+    var open = nav.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', open);
+    btn.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-overlay', open);
+  });
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.classList.remove('is-open');
+      document.body.classList.remove('nav-overlay');
+    });
+  });
+})();
+</script>
 </body>
 </html>
