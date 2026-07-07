@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerija radova — Bjuti Nadica</title>
+  <meta name="description" content="Pogledajte radove salona Bjuti Nadica — manikir, pedikir, depilacija i šminkanje.">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="index.html" aria-label="Bjuti Nadica — početna">
+    <span class="logo-znak">BN</span>
+    <span class="logo-ime">Bjuti Nadica</span>
+  </a>
+  <nav aria-label="Glavna navigacija">
+    <a href="index.html#usluge">Usluge</a>
+    <a href="index.html#zasto">Zašto mi</a>
+    <a href="galerija.html" class="active">Galerija</a>
+    <a href="cenovnik.html">Cenovnik</a>
+    <a href="index.html#kontakt">Kontakt</a>
+  </nav>
+  <a class="header-tel" href="tel:0677220304">067 722 0304</a>
+</header>
+
+<!-- GALERIJA HERO -->
+<div class="galerija-hero">
+  <div class="okvir">
+    <span class="naslov-sekcije" style="text-align:left;margin-bottom:0.5rem;">
+      <span class="script" style="font-size:clamp(26px,4vw,38px);">naši</span>
+    </span>
+    <h1 style="font-family:var(--display);font-size:clamp(28px,5vw,48px);letter-spacing:.14em;text-transform:uppercase;color:var(--roze);font-weight:400;">Radovi</h1>
+  </div>
+</div>
+
+<!-- GALERIJA SADRŽAJ -->
+<section>
+
+  <!-- FILTER TRAKA -->
+  <div class="filter-traka" role="group" aria-label="Filter galerije">
+    <button class="filter-btn aktivan" data-filter="sve">Sve</button>
+    <button class="filter-btn" data-filter="manikir">Manikir</button>
+    <button class="filter-btn" data-filter="pedikir">Pedikir</button>
+    <button class="filter-btn" data-filter="depilacija">Depilacija</button>
+    <button class="filter-btn" data-filter="sminkanje">Šminkanje</button>
+  </div>
+
+  <!-- MREŽA -->
+  <div class="galerija-grid" id="galerija-grid">
+
+    <!-- MANIKIR -->
+    <div class="galerija-item" data-kategorija="manikir" data-index="0" tabindex="0" role="button" aria-label="Otvori sliku: Gel manikir — rad salona Bjuti Nadica">
+      <img src="foto/manikir-01.jpg" alt="Gel manikir — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="manikir" data-index="1" tabindex="0" role="button" aria-label="Otvori sliku: Nail art manikir — rad salona Bjuti Nadica">
+      <img src="foto/manikir-02.jpg" alt="Nail art manikir — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="manikir" data-index="2" tabindex="0" role="button" aria-label="Otvori sliku: French manikir — rad salona Bjuti Nadica">
+      <img src="foto/manikir-03.jpg" alt="French manikir — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="manikir" data-index="3" tabindex="0" role="button" aria-label="Otvori sliku: Dizajn noktiju — rad salona Bjuti Nadica">
+      <img src="foto/manikir-04.jpg" alt="Dizajn noktiju — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+
+    <!-- PEDIKIR -->
+    <div class="galerija-item" data-kategorija="pedikir" data-index="4" tabindex="0" role="button" aria-label="Otvori sliku: Gel pedikir — rad salona Bjuti Nadica">
+      <img src="foto/pedikir-01.jpg" alt="Gel pedikir — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="pedikir" data-index="5" tabindex="0" role="button" aria-label="Otvori sliku: Spa pedikir — rad salona Bjuti Nadica">
+      <img src="foto/pedikir-02.jpg" alt="Spa pedikir — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="pedikir" data-index="6" tabindex="0" role="button" aria-label="Otvori sliku: Pedikir — rad salona Bjuti Nadica">
+      <img src="foto/pedikir-03.jpg" alt="Pedikir — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="pedikir" data-index="7" tabindex="0" role="button" aria-label="Otvori sliku: Medicinski pedikir — rad salona Bjuti Nadica">
+      <img src="foto/pedikir-04.jpg" alt="Medicinski pedikir — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+
+    <!-- DEPILACIJA -->
+    <div class="galerija-item" data-kategorija="depilacija" data-index="8" tabindex="0" role="button" aria-label="Otvori sliku: Depilacija voskom — Bjuti Nadica">
+      <img src="foto/depilacija-01.jpg" alt="Depilacija voskom — Bjuti Nadica" loading="lazy">
+    </div>
+
+    <!-- ŠMINKANJE -->
+    <div class="galerija-item" data-kategorija="sminkanje" data-index="9" tabindex="0" role="button" aria-label="Otvori sliku: Svečano šminkanje — rad salona Bjuti Nadica">
+      <img src="foto/sminkanje-01.jpg" alt="Svečano šminkanje — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="sminkanje" data-index="10" tabindex="0" role="button" aria-label="Otvori sliku: Vjenčano šminkanje — rad salona Bjuti Nadica">
+      <img src="foto/sminkanje-02.jpg" alt="Vjenčano šminkanje — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+    <div class="galerija-item" data-kategorija="sminkanje" data-index="11" tabindex="0" role="button" aria-label="Otvori sliku: Šminkanje za posebne prilike — rad salona Bjuti Nadica">
+      <img src="foto/sminkanje-03.jpg" alt="Šminkanje za posebne prilike — rad salona Bjuti Nadica" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <span class="script">Bjuti Nadica</span>
+  © 2026 Bjuti Nadica · Veselina Masleše 40 · 067 722 0304
+  <br><span style="font-size:11px;opacity:.4;margin-top:6px;display:inline-block;">Web dizajn: <a href="https://rondo.rs" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;opacity:1;">Rondo</a></span>
+</footer>
+
+<!-- LIGHTBOX -->
+<dialog class="lightbox" id="lightbox" aria-label="Pregled fotografije">
+  <div class="lightbox-inner" id="lightbox-backdrop">
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Prethodna slika">&#8592;</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Sledeća slika">&#8594;</button>
+    <button class="lightbox-close" id="lb-close" aria-label="Zatvori">&#10005;</button>
+  </div>
+</dialog>
+
+<script>
+
+  // ── FILTER ──
+  const items = Array.from(document.querySelectorAll('.galerija-item'));
+  const btns = document.querySelectorAll('.filter-btn');
+  let activeFilter = 'sve';
+
+  function applyFilter(filter) {
+    activeFilter = filter;
+    btns.forEach(b => b.classList.toggle('aktivan', b.dataset.filter === filter));
+    items.forEach(item => {
+      const match = filter === 'sve' || item.dataset.kategorija === filter;
+      item.hidden = !match;
+    });
+    // update hash bez scroll-a
+    history.replaceState(null, '', filter === 'sve' ? '#' : '#' + filter);
+  }
+
+  btns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+
+  // deep-link po hash-u
+  function applyHash() {
+    const hash = location.hash.slice(1);
+    const validFilters = ['manikir', 'pedikir', 'depilacija', 'sminkanje'];
+    applyFilter(validFilters.includes(hash) ? hash : 'sve');
+  }
+  applyHash();
+  window.addEventListener('hashchange', applyHash);
+
+  // ── LIGHTBOX ──
+  const dialog = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbClose = document.getElementById('lb-close');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbNext = document.getElementById('lb-next');
+  const lbBackdrop = document.getElementById('lightbox-backdrop');
+
+  let currentIndex = 0;
+  let lastFocused = null;
+
+  function visibleItems() {
+    return items.filter(i => !i.hidden);
+  }
+
+  function openLightbox(index) {
+    const visible = visibleItems();
+    currentIndex = index;
+    const item = visible[currentIndex];
+    if (!item) return;
+    const img = item.querySelector('img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    dialog.showModal();
+    lbClose.focus();
+  }
+
+  function navigate(dir) {
+    const visible = visibleItems();
+    currentIndex = (currentIndex + dir + visible.length) % visible.length;
+    const item = visible[currentIndex];
+    const img = item.querySelector('img');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+  }
+
+  items.forEach((item, globalIdx) => {
+    item.addEventListener('click', () => {
+      lastFocused = item;
+      const visible = visibleItems();
+      const visIdx = visible.indexOf(item);
+      openLightbox(visIdx);
+    });
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+    });
+  });
+
+  lbClose.addEventListener('click', () => dialog.close());
+  lbPrev.addEventListener('click', () => navigate(-1));
+  lbNext.addEventListener('click', () => navigate(1));
+
+  // klik van slike zatvara
+  lbBackdrop.addEventListener('click', e => {
+    if (e.target === lbBackdrop) dialog.close();
+  });
+
+  dialog.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+
+  dialog.addEventListener('close', () => {
+    lbImg.src = '';
+    if (lastFocused) lastFocused.focus();
+  });
+</script>
+
+</body>
+</html>
