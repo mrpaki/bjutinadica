@@ -114,6 +114,7 @@
     <img class="lightbox-img" id="lb-img" src="" alt="">
     <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Sledeća slika">&#8594;</button>
     <button class="lightbox-close" id="lb-close" aria-label="Zatvori">&#10005;</button>
+    <div class="lb-counter" id="lb-counter" aria-live="polite"></div>
   </div>
 </dialog>
 
@@ -153,38 +154,67 @@
   const lbPrev = document.getElementById('lb-prev');
   const lbNext = document.getElementById('lb-next');
   const lbBackdrop = document.getElementById('lightbox-backdrop');
+  const lbCounter = document.getElementById('lb-counter');
 
   let currentIndex = 0;
   let lastFocused = null;
+  let savedScroll = 0;
 
   function visibleItems() {
     return items.filter(i => !i.hidden);
   }
 
-  function openLightbox(index) {
+  function updateCounter() {
     const visible = visibleItems();
-    currentIndex = index;
+    lbCounter.textContent = (currentIndex + 1) + ' / ' + visible.length;
+  }
+
+  function showImage(index) {
+    const visible = visibleItems();
+    currentIndex = ((index % visible.length) + visible.length) % visible.length;
     const item = visible[currentIndex];
-    if (!item) return;
     const img = item.querySelector('img');
     lbImg.src = img.src;
     lbImg.alt = img.alt;
+    updateCounter();
+  }
+
+  function lockScroll() {
+    savedScroll = window.scrollY;
+    document.body.style.top = '-' + savedScroll + 'px';
+    document.body.style.position = 'fixed';
+    document.body.style.overflowY = 'scroll';
+    document.body.style.width = '100%';
+  }
+
+  function unlockScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.overflowY = '';
+    document.body.style.width = '';
+    window.scrollTo(0, savedScroll);
+  }
+
+  function openLightbox(index) {
+    lastFocused = document.activeElement;
+    lockScroll();
+    showImage(index);
     dialog.showModal();
     lbClose.focus();
   }
 
-  function navigate(dir) {
-    const visible = visibleItems();
-    currentIndex = (currentIndex + dir + visible.length) % visible.length;
-    const item = visible[currentIndex];
-    const img = item.querySelector('img');
-    lbImg.src = img.src;
-    lbImg.alt = img.alt;
+  function handleClose() {
+    lbImg.src = '';
+    unlockScroll();
+    if (lastFocused) lastFocused.focus({ preventScroll: true });
   }
 
-  items.forEach((item, globalIdx) => {
+  function navigate(dir) {
+    showImage(currentIndex + dir);
+  }
+
+  items.forEach(item => {
     item.addEventListener('click', () => {
-      lastFocused = item;
       const visible = visibleItems();
       const visIdx = visible.indexOf(item);
       openLightbox(visIdx);
@@ -198,8 +228,10 @@
   lbPrev.addEventListener('click', () => navigate(-1));
   lbNext.addEventListener('click', () => navigate(1));
 
-  // klik van slike zatvara
+  // klik van slike zatvara; swipe flag sprečava lažni klik posle swipe-a
+  let swipeHandled = false;
   lbBackdrop.addEventListener('click', e => {
+    if (swipeHandled) { swipeHandled = false; return; }
     if (e.target === lbBackdrop) dialog.close();
   });
 
@@ -208,10 +240,25 @@
     if (e.key === 'ArrowRight') navigate(1);
   });
 
-  dialog.addEventListener('close', () => {
-    lbImg.src = '';
-    if (lastFocused) lastFocused.focus();
-  });
+  dialog.addEventListener('close', handleClose);
+
+  // ── SWIPE ──
+  let touchStartX = 0, touchStartY = 0;
+
+  lbBackdrop.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    swipeHandled = false;
+  }, { passive: true });
+
+  lbBackdrop.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy)) {
+      navigate(dx < 0 ? 1 : -1);
+      swipeHandled = true;
+    }
+  }, { passive: true });
 </script>
 <script>
 (function() {

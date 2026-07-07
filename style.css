@@ -595,6 +595,17 @@ dialog.lightbox::backdrop { background: rgba(0,0,0,.88); }
 .lightbox-nav:hover { background: var(--magenta); }
 .lightbox-prev { left: 1rem; }
 .lightbox-next { right: 1rem; }
+.lb-counter {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: .1em;
+  color: rgba(255,247,251,.45);
+  pointer-events: none;
+  white-space: nowrap;
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
@@ -604,7 +615,7 @@ dialog.lightbox::backdrop { background: rgba(0,0,0,.88); }
   .hero-photos { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
   .galerija-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
   .filter-btn { font-size: 0.76rem; padding: 0.45rem 0.9rem; }
-  .lightbox-nav { display: none; }
+  .lightbox-nav { width: 44px; height: 44px; font-size: 1.1rem; }
   .lightbox-img { max-width: 95vw; max-height: 80vh; }
 }
 @media (max-width: 380px) {
