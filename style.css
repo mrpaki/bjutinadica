@@ -35,7 +35,7 @@ a:focus-visible { outline: 2px solid var(--zlatna); outline-offset: 3px; border-
 
 /* ─── HEADER ─── */
 header {
-  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 24px;
   background: linear-gradient(to bottom, rgba(18,10,16,.92), rgba(18,10,16,.75));
@@ -94,14 +94,14 @@ nav a:hover, nav a:focus-visible, nav a.active { opacity: 1; color: var(--roze);
     padding: 80px 32px 40px;
     transform: translateX(100%);
     transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-    z-index: 55;
+    z-index: 99;
   }
   nav.nav-open { transform: translateX(0); }
   nav a { font-size: 18px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.06); opacity: .9; }
   nav a:last-child { border-bottom: none; }
   body.nav-overlay::before {
     content: ""; position: fixed; inset: 0;
-    background: rgba(0,0,0,.55); z-index: 54;
+    background: rgba(0,0,0,.55); z-index: 98;
   }
 }
 
